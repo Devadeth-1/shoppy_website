@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/new.css' %}">
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="main">
+
+    {% for i in cat %} 
+          <div class="card" style="width: 18rem;">
+            <img class="img" src=" {{i.image.url}}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{i.name}}</h5>
+              <p class="card-text">{{i.description}}</p>
+              <a href="#" class="btn btn-primary">{{i.price}}</a>
+            </div>
+          </div>      
+    {% endfor %}
+  
+    </div>
+
+{% endblock %}

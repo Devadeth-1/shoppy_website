@@ -1,0 +1,86 @@
+
+
+{% load static %}
+
+
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+    }
+    .login-container {
+        background-color: #fff;
+        width: 350px;
+        padding: 40px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+    h2 {
+        margin-bottom: 20px;
+        color: #333;
+    }
+    .input-field {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    .login-button {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        background-color: #4CAF50;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+    .login-button:hover {
+        background-color: #45a049;
+    }
+    .footer-text {
+        margin-top: 20px;
+        color: #777;
+        font-size: 14px;
+    }
+</style>
+
+
+
+<div class="login-container">
+    <h2>Login</h2>
+{% for i in messages %}
+<div class="alert-warnning" style="width: 400px; height:60px; color : red; margin-left: 500px; margin-top: 40px; text-align: center;background-color: beige; font-size:20px;".role="alert">
+{{i}}
+</div> 
+{% endfor %}
+    <form  method="post">
+        {% csrf_token %}
+        <input type="text" class="input-field" placeholder="Username" name="user_name" required>
+        <input type="password" class="input-field" placeholder="Password" name="password" required>
+        <button type="submit" class="login-button">Login</button>
+    </form>
+
+    <div class="register">
+        <a href="/reg/">Register Here</a>
+    </div>
+    
+    
+</div>
+
+
+
+
+
+
+
+
+

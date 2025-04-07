@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+</head>
+<body>
+
+
+    {% block content %}
+
+{% for i in messages %}
+<div class="alert-warnning" style="width: 400px; height:60px; color : red; margin-left: 500px; margin-top: 40px; text-align: center;background-color: beige; font-size:20px;".role="alert">
+{{i}}
+</div> 
+{% endfor %}
+
+<form action="/reg/" method="POST" >
+    {% csrf_token %}
+<div class="sub1">
+<input type="text" placeholder="ENTER THE USER NAME" name="user_name" style="width: 300PX; height:40px; color:black; margin-left: 40px; margin-top: 30px; "> 
+<input type="text" placeholder="ENTER THE EMAIL" name="email" style="width: 300PX; height:40px; color:black; margin-left: 40px; margin-top: 30px; "> 
+ <input type="text" placeholder="ENTER THE FIRST NAME" name="first_name" style="width: 300PX; height:40px; color:black; margin-left: 40px; margin-top: 30px; "> 
+ <input type="text" placeholder="ENTER THE SECOND NAME" name="second_name" style="width: 300PX; height:40px; color:black;margin-left: 40px; margin-top: 30px;">  
+ <input type="text" placeholder="PASSWORD" name="password" style="width: 300PX; height:40px; color:black;margin-left: 40px; margin-top: 30px;">
+ <input type="text" placeholder="CONFIRM_PASSWORD" name="confirm_password" style="width: 300PX; height:40px; color:black;margin-left: 40px; margin-top: 30px;">
+ <button type="submit" style="margin-top: 30px; display:flex; margin-left: 160px; width: 80PX; height:30px; font-size:20px; ">Submit</button>
+ 
+
+</div>
+{% if user_name %}
+    <h3>WELCOME {{user_name}} welcome to shoppy......</h3>
+ 
+{% elif user1 %}
+    <h3>{{user_name}}, Sorry your Password in Not Same</h3>
+
+{% endif %}
+</form>
+{% endblock %}
+
+
+</body>
+</html>
